@@ -3,24 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
-        <script>
+        <script  src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+        <script type="text/javascript">
             function submitBtn() {
                 var getName = $('#name').val()
                 var getAge = $('#age').val()
-                var Btn = $('#subBtn')
-                if(getName == "") {
+                var suBtn = $('#loginForm')
+                if(getName === "") {
                     $('#checkName').html("이름을 입력해주세요.")
                     $('#checkName').attr("class", "fBlue")
+                }else {
+                    $('#checkName').html("")
                 }
-                if(getAge == "") {
+                if(getAge === "") {
                     $('#checkMessage').html("나이를 입력해주세요.")
                     $('#checkMessage').attr("class", "fBlue")
+                }else {
+                    $('#checkMessage').html("")
                 }
-                if(getName != "" && getAge != "") {
-                    Btn.submit();
-                }
-            }
+                if(getName !== "" && getAge !== "") {
+                   suBtn.submit()
+                          }
+                     }
         </script>
         <style>
             li {
@@ -33,7 +37,7 @@
         </style>
     </head>
     <body>
-        <form method="post" action="member_insert.php">
+        <form method="post" id="loginForm" action="member_insert.php">
             <ul>
                 <li>
                     <label>이름:
@@ -51,7 +55,7 @@
                     <label><input type="radio" name="gender" value="남" checked>남성</label>
                     <label><input type="radio" name="gender" value="여">여성</label>
                 </li>
-                <li><input type="button" onclick="submitBtn()" id="subBtn" value="추가"></li>
+                <li><button type="button" onclick="submitBtn()" id="subBtn" value="추가">추가</button></li>
             </ul>
         </form>
     </body>
